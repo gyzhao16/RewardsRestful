@@ -1,13 +1,15 @@
 package com.example.rewardsrestful.entity;
 
 import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @Entity
-@Table(name = "customer")
+@EnableAutoConfiguration
+@Table(name = "customers")
 public class CustomerEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
