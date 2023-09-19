@@ -1,19 +1,33 @@
-package com.example.rewardsrestful.model;
+package com.example.rewardsrestful.entity;
+
+import jakarta.persistence.*;
 
 import java.util.Date;
 
-public class Transaction {
+@Entity
+@Table(name = "transaction")
+public class TransactionEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "customerId")
     private Long customerId;
+    @Column(name = "amount")
     private Double amount;
+    @Column(name = "time")
     private Date time;
 
-    public Transaction(Long id, Long customerId, Double amount, Date time) {
+    public TransactionEntity(Long id, Long customerId, Double amount, Date time) {
         this.id = id;
         this.customerId = customerId;
         this.amount = amount;
         this.time = time;
+    }
+
+    public TransactionEntity() {
+
     }
 
     public Long getId() {
@@ -46,15 +60,5 @@ public class Transaction {
 
     public void setTime(Date time) {
         this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-                ", amount=" + amount +
-                ", time=" + time +
-                '}';
     }
 }
