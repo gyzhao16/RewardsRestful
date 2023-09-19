@@ -6,6 +6,9 @@ public class Reward {
     private Long points;
     private String month;
 
+    public Reward() {
+    }
+
     public Reward(Long customerId, Long points, String month) {
         this.customerId = customerId;
         this.points = points;
