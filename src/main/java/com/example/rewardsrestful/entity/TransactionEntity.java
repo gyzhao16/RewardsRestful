@@ -3,7 +3,7 @@ package com.example.rewardsrestful.entity;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @EnableAutoConfiguration
@@ -19,9 +19,9 @@ public class TransactionEntity {
     @Column(name = "amount")
     private Double amount;
     @Column(name = "time")
-    private Date time;
+    private LocalDate time;
 
-    public TransactionEntity(Long id, Long customerId, Double amount, Date time) {
+    public TransactionEntity(Long id, Long customerId, Double amount, LocalDate time) {
         this.id = id;
         this.customerId = customerId;
         this.amount = amount;
@@ -56,11 +56,11 @@ public class TransactionEntity {
         this.amount = amount;
     }
 
-    public Date getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(LocalDate time) {
         this.time = time;
     }
 }

@@ -6,6 +6,8 @@ import com.example.rewardsrestful.model.Reward;
 import com.example.rewardsrestful.model.Transaction;
 import com.example.rewardsrestful.service.RewardService;
 import com.example.rewardsrestful.util.EntityVoConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import static com.example.rewardsrestful.util.RewardUtil.*;
 public class RewardServiceImpl implements RewardService {
 
     private TransactionRepository transactionRepository;
-
+    private static Logger logger = LoggerFactory.getLogger(RewardServiceImpl.class);
     public RewardServiceImpl(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
     }

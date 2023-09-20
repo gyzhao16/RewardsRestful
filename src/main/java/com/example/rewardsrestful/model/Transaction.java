@@ -1,15 +1,15 @@
 package com.example.rewardsrestful.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transaction {
 
     private Long id;
     private Long customerId;
     private Double amount;
-    private Date time;
+    private LocalDate time;
 
-    public Transaction(Long id, Long customerId, Double amount, Date time) {
+    public Transaction(Long id, Long customerId, Double amount, LocalDate time) {
         this.id = id;
         this.customerId = customerId;
         this.amount = amount;
@@ -40,11 +40,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Date getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(LocalDate time) {
         this.time = time;
     }
 
