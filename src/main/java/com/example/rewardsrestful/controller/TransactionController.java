@@ -2,7 +2,6 @@ package com.example.rewardsrestful.controller;
 
 import com.example.rewardsrestful.exception.CustomerNotFoundException;
 import com.example.rewardsrestful.exception.TransactionNotFoundException;
-import com.example.rewardsrestful.impl.RewardServiceImpl;
 import com.example.rewardsrestful.model.Customer;
 import com.example.rewardsrestful.model.ResponseMessage;
 import com.example.rewardsrestful.model.Transaction;
@@ -21,7 +20,7 @@ public class TransactionController {
 
     private TransactionService transactionService;
     private CustomerService customerService;
-    private static Logger logger = LoggerFactory.getLogger(RewardServiceImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(TransactionController.class);
 
     public TransactionController(TransactionService transactionService, CustomerService customerService) {
         this.transactionService = transactionService;

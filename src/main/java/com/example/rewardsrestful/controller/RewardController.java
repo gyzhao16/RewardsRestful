@@ -2,7 +2,6 @@ package com.example.rewardsrestful.controller;
 
 import com.example.rewardsrestful.exception.CustomerNotFoundException;
 import com.example.rewardsrestful.exception.MonthNotValidException;
-import com.example.rewardsrestful.impl.RewardServiceImpl;
 import com.example.rewardsrestful.model.Customer;
 import com.example.rewardsrestful.model.ResponseMessage;
 import com.example.rewardsrestful.model.Reward;
@@ -24,7 +23,7 @@ public class RewardController {
 
     private RewardService rewardService;
     private CustomerService customerService;
-    private static Logger logger = LoggerFactory.getLogger(RewardServiceImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(RewardController.class);
 
 
     public RewardController(RewardService rewardService, CustomerService customerService) {

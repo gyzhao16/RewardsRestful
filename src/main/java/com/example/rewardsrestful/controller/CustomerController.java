@@ -1,7 +1,6 @@
 package com.example.rewardsrestful.controller;
 
 import com.example.rewardsrestful.exception.CustomerNotFoundException;
-import com.example.rewardsrestful.impl.RewardServiceImpl;
 import com.example.rewardsrestful.model.Customer;
 import com.example.rewardsrestful.model.ResponseMessage;
 import com.example.rewardsrestful.service.CustomerService;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     private CustomerService customerService;
-    private static Logger logger = LoggerFactory.getLogger(RewardServiceImpl.class);
+    private static Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
