@@ -1,12 +1,17 @@
 package com.example.rewardsrestful.model;
 
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.PositiveOrZero;
+
 import java.time.LocalDate;
 
 public class Transaction {
 
     private Long id;
     private Long customerId;
+    @PositiveOrZero
     private Double amount;
+    @PastOrPresent
     private LocalDate time;
 
     public Transaction(Long id, Long customerId, Double amount, LocalDate time) {

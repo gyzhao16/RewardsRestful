@@ -2,13 +2,16 @@ package com.example.rewardsrestful.model;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class Customer {
 
     private Long id;
     @NotBlank
+    @Size(max = 50)
     private String name;
     @Email
+    @Size(max = 50)
     private String email;
 
     public Customer(Long id, String name, String email) {

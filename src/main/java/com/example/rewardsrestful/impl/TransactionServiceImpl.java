@@ -23,6 +23,12 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    public List<Transaction> getAllTransactions() {
+        List<TransactionEntity> transactions = transactionRepository.findAll();
+        return transactions.stream().map(EntityVoConverter::convertTransactionEntityToVo).collect(Collectors.toList());
+    }
+
+    @Override
     public List<Transaction> getAllTransactionsByCustomerId(Long customerId) {
         List<TransactionEntity> transactions = transactionRepository.findTransactionEntitiesByCustomerId(customerId);
         return transactions.stream().map(EntityVoConverter::convertTransactionEntityToVo).collect(Collectors.toList());
