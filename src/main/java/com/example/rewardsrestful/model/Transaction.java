@@ -4,6 +4,7 @@ import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.PositiveOrZero;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Transaction {
 
@@ -61,5 +62,17 @@ public class Transaction {
                 ", amount=" + amount +
                 ", time=" + time +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transaction that)) return false;
+        return Objects.equals(id, that.id) && Objects.equals(customerId, that.customerId) && Objects.equals(amount, that.amount) && Objects.equals(time, that.time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, customerId, amount, time);
     }
 }

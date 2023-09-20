@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.Objects;
+
 public class Customer {
 
     private Long id;
@@ -51,5 +53,17 @@ public class Customer {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer customer)) return false;
+        return Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, email);
     }
 }
