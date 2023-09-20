@@ -70,7 +70,7 @@ public class CustomerController {
         }
 
         customerService.deleteCustomerById(id);
-        return new ResponseEntity<>(new ResponseMessage("Customer deleted."), HttpStatus.OK);
+        return new ResponseEntity<>("Customer deleted.", HttpStatus.OK);
     }
 
     @ExceptionHandler(CustomerNotFoundException.class)

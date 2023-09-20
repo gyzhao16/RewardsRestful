@@ -57,6 +57,10 @@ public class TransactionController {
     @PostMapping("/transaction")
     public ResponseEntity<?> createTransaction(@Validated @RequestBody Transaction transaction) {
 
+        Customer deletedCustomer = customerService.findCustomerById(transaction.getCustomerId());
+        if (deletedCustomer == null) {
+            throw new CustomerNotFoundException("Customer not found.");
+        }
         Transaction createdTransaction = transactionService.createTransaction(transaction);
         return new ResponseEntity<>(new ResponseMessage("Transaction created.", createdTransaction), HttpStatus.CREATED);
     }
@@ -64,6 +68,10 @@ public class TransactionController {
     @PutMapping("/transaction/{transactionId}")
     public ResponseEntity<?> updateTransaction(@PathVariable("transactionId") Long transactionId, @Validated @RequestBody Transaction transaction) {
 
+        Customer deletedCustomer = customerService.findCustomerById(transaction.getCustomerId());
+        if (deletedCustomer == null) {
+            throw new CustomerNotFoundException("Customer not found.");
+        }
         Transaction updatedTransaction = transactionService.getTransactionByTransactionId(transactionId);
         if (updatedTransaction == null) {
             throw new TransactionNotFoundException("Transaction not found.");
@@ -85,7 +93,7 @@ public class TransactionController {
         }
 
         transactionService.deleteTransactionById(transactionId);
-        return new ResponseEntity<>(new ResponseMessage("Transaction deleted."), HttpStatus.OK);
+        return new ResponseEntity<>("Transaction deleted.", HttpStatus.OK);
     }
 
     @ExceptionHandler(CustomerNotFoundException.class)
